@@ -1,4 +1,4 @@
-# work-life-balance-webpack-plugin 反内卷 webpack 插件
+# wlb-webpack-plugin 反内卷 webpack 插件
 
 该插件会在非工作日及下班时间自动将 webpack 打包产物替换为反内卷标语，是追求 work-life-balance 的前端工程师们的最佳选择。
 
