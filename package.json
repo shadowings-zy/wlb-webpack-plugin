@@ -9,6 +9,7 @@
     "test:node": "node ./test/dist/main.js",
     "format": "prettier --write './src/**/*.js' './test/**/*.js'"
   },
+  "repository": "shadowings-zy/wlb-webpack-plugin",
   "files": [
     "src/*",
     "package.json",
