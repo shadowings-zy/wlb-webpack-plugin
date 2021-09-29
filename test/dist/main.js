@@ -1,1 +1,1 @@
-(()=>{var o={717:o=>{o.exports={helloWorld:()=>{console.log("hello world")},foo:()=>{console.log("this is foo")}}}},r={};function l(e){var s=r[e];if(void 0!==s)return s.exports;var t=r[e]={exports:{}};return o[e](t,t.exports,l),t.exports}(()=>{const{foo:o,helloWorld:r}=l(717);console.log("this is bar"),o(),r()})()})();
+(function(){var slogan='[work-life-balance-plugin]反卷插件提醒您：需求千万条，反卷第一条，非要搞内卷，加班两行泪';console.log(slogan);if(typeof window!=='undefined'){alert(slogan);}})()

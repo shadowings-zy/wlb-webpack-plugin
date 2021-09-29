@@ -2,12 +2,18 @@
   "name": "wlb-webpack-plugin",
   "version": "1.0.0",
   "description": "work-life-balance webpack plugin",
-  "main": "index.js",
+  "main": "src/plugin/index.js",
   "scripts": {
     "dev": "cd test && npx webpack",
     "test:html": "open ./test/dist/index.html ",
-    "test:node": "node ./test/dist/main.js"
+    "test:node": "node ./test/dist/main.js",
+    "format": "prettier --write './src/**/*.js' './test/**/*.js'"
   },
+  "files": [
+    "src/*",
+    "package.json",
+    "README.md"
+  ],
   "keywords": [
     "work-life-balance",
     "webpack",
@@ -16,6 +22,7 @@
   "author": "shadowingszy",
   "license": "ISC",
   "devDependencies": {
+    "prettier": "^2.4.1",
     "webpack": "^5.55.0",
     "webpack-cli": "^4.8.0"
   },

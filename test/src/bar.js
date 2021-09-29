@@ -1,9 +1,9 @@
-const { foo, helloWorld } = require('./foo')
+const { foo, helloWorld } = require("./foo");
 
 const bar = () => {
-  console.log('this is bar');
-}
+  console.log("this is bar");
+};
 
-bar()
-foo()
-helloWorld()
+bar();
+foo();
+helloWorld();
