@@ -16,6 +16,8 @@ module.exports = {
       startWorkingTime: 1,
       endWorkingTime: 3,
       ignoreWeekend: false,
+      warningMessage:
+        '别卷了！现在不是工作时间！为了营造良好的工作环境，WLB插件已经将打包产物替换为「反卷工作标语」',
     }),
   ],
 };

@@ -1,13 +1,14 @@
 const chalk = require('chalk');
 const { generateCode } = require('../codegen/index');
-const { DEFAULT_OPTIONS, WARNING_MESSAGE } = require('../constant');
+const { DEFAULT_OPTIONS } = require('../constant');
 
 class WLBPlugin {
   constructor(options) {
     this.options = Object.assign(DEFAULT_OPTIONS, options || {});
   }
   apply(compiler) {
-    const { startWorkingTime, endWorkingTime, ignoreWeekend } = this.options;
+    const { startWorkingTime, endWorkingTime, ignoreWeekend, warningMessage } =
+      this.options;
 
     const date = new Date();
     const day = date.getDay();
@@ -17,7 +18,7 @@ class WLBPlugin {
       !isWorkdays || hour < startWorkingTime || hour >= endWorkingTime;
 
     if (isWorkOvertime) {
-      console.log(chalk.red(WARNING_MESSAGE));
+      console.log(chalk.red(warningMessage));
 
       compiler.hooks.emit.tap('WLBPlugin', (compilation) => {
         // 遍历构建产物

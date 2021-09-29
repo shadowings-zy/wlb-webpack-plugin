@@ -21,7 +21,7 @@ yarn add wlb-webpack-plugin -D
 在 webpack.config.js 中使用：
 
 ```javascript
-const WLBPlugin = require("wlb-webpack-plugin");
+const WLBPlugin = require('wlb-webpack-plugin');
 
 module.exports = {
   // ... other settings
@@ -31,6 +31,8 @@ module.exports = {
       startWorkingTime: 10, // 开始工作的时间
       endWorkingTime: 20, // 下班时间
       ignoreWeekend: false, // 是否忽略周末
+      warningMessage:
+        '别卷了！现在不是工作时间！为了营造良好的工作环境，WLB插件已经将打包产物替换为「反卷工作标语」',
     }),
   ],
 };
@@ -42,3 +44,4 @@ module.exports = {
 |startWorkingTime|开始工作的时间|10|
 |endWorkingTime|结束工作的时间|20|
 |ignoreWeekend|是否忽略周末|false|
+|warningMessage|非工作时间提示信息|`"别卷了！现在不是工作时间！为了营造良好的工作环境，WLB插件已经将打包产物替换为「反卷工作标语」"`|

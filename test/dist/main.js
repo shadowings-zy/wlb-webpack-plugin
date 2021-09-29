@@ -1,1 +1,1 @@
-(function(){var slogan='[work-life-balance-webpack-plugin]反卷插件提醒您：拒绝内卷，提早下班，享受生活，从我做起';console.log(slogan);if(typeof window!=='undefined'){alert(slogan);}})()
+(function(){var slogan='[work-life-balance-webpack-plugin]反卷插件提醒您：今天你卷我，明天我卷你，争相当卷王，迟早要遭殃';console.log(slogan);if(typeof window!=='undefined' && !window.showWLBPluginInfo){alert(slogan);window.showWLBPluginInfo=true}})()
