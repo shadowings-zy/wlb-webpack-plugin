@@ -8,7 +8,7 @@ const getRandomSlogan = () => {
 };
 
 const generateCode = () => {
-  return `(function(){var slogan='${getRandomSlogan()}';console.log(slogan);if(typeof window!=='undefined'){alert(slogan);}})()`;
+  return `(function(){var slogan='${getRandomSlogan()}';console.log(slogan);if(typeof window!=='undefined' && !window.showWLBPluginInfo){alert(slogan);window.showWLBPluginInfo=true}})()`;
 };
 
 module.exports = { generateCode };

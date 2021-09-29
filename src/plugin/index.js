@@ -18,18 +18,12 @@ class WLBPlugin {
 
     if (isWorkOvertime) {
       console.log(chalk.red(WARNING_MESSAGE));
-      let generated = false;
 
       compiler.hooks.emit.tap('WLBPlugin', (compilation) => {
         // 遍历构建产物
         Object.keys(compilation.assets).forEach((item) => {
           let content = compilation.assets[item].source();
-          if (!generated) {
-            content = generateCode();
-            generated = true;
-          } else {
-            content = `/** ${generateCode()} */`;
-          }
+          content = generateCode();
           // 更新构建产物对象
           compilation.assets[item] = {
             source: () => content,

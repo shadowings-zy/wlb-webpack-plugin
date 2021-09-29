@@ -1,6 +1,6 @@
 {
   "name": "wlb-webpack-plugin",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "work-life-balance webpack plugin",
   "main": "src/plugin/index.js",
   "scripts": {
