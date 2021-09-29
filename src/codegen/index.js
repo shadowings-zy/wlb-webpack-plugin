@@ -1,8 +1,8 @@
-const { WORK_LIFE_BALANCE_SLOGAN_LIST } = require("../constant");
+const { WORK_LIFE_BALANCE_SLOGAN_LIST } = require('../constant');
 
 const getRandomSlogan = () => {
   const index = Math.floor(
-    Math.random() * WORK_LIFE_BALANCE_SLOGAN_LIST.length
+    Math.random() * WORK_LIFE_BALANCE_SLOGAN_LIST.length,
   );
   return WORK_LIFE_BALANCE_SLOGAN_LIST[index];
 };

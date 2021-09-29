@@ -1,0 +1,1 @@
+/** (function(){var slogan='[work-life-balance-webpack-plugin]反卷插件提醒您：需求千万条，反卷第一条，非要搞内卷，加班两行泪';console.log(slogan);if(typeof window!=='undefined'){alert(slogan);}})() */

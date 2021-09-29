@@ -1,6 +1,6 @@
-const chalk = require("chalk");
-const { generateCode } = require("../codegen/index");
-const { DEFAULT_OPTIONS, WARNING_MESSAGE } = require("../constant");
+const chalk = require('chalk');
+const { generateCode } = require('../codegen/index');
+const { DEFAULT_OPTIONS, WARNING_MESSAGE } = require('../constant');
 
 class WLBPlugin {
   constructor(options) {
@@ -18,11 +18,18 @@ class WLBPlugin {
 
     if (isWorkOvertime) {
       console.log(chalk.red(WARNING_MESSAGE));
-      compiler.hooks.emit.tap("WLBPlugin", (compilation) => {
+      let generated = false;
+
+      compiler.hooks.emit.tap('WLBPlugin', (compilation) => {
         // 遍历构建产物
         Object.keys(compilation.assets).forEach((item) => {
           let content = compilation.assets[item].source();
-          content = generateCode();
+          if (!generated) {
+            content = generateCode();
+            generated = true;
+          } else {
+            content = `/** ${generateCode()} */`;
+          }
           // 更新构建产物对象
           compilation.assets[item] = {
             source: () => content,
