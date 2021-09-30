@@ -13,18 +13,20 @@ const htmlTemplate = (slogan) => {
 
 const generateCode = () => {
   const slogan = getRandomSlogan();
-  return `(function() {
-    const introduction = '${slogan.introduction}';
-    const content = '${slogan.content}';
-    console.log(introduction + content);
-    if (typeof window!=='undefined' && !window.showWLBPluginInfo) {
-      document.body.setAttribute('style', 'display:flex;flex-direction:column;width:100vw;height:100vh;padding:0;margin:0;justify-content:center;text-align:center;')
-      window.setInterval(function() {
-        document.body.innerHTML="${htmlTemplate(slogan.content)}";
-      }, 1000)
-      window.showWLBPluginInfo=true
-    }
-  })()`;
+  return `
+    ;(function() {
+      const introduction = '${slogan.introduction}';
+      const content = '${slogan.content}';
+      console.log(introduction + content);
+      if (typeof window!=='undefined' && !window.showWLBPluginInfo) {
+        document.body.setAttribute('style', 'display:flex;flex-direction:column;width:100vw;height:100vh;padding:0;margin:0;justify-content:center;text-align:center;')
+        window.setInterval(function() {
+          document.body.innerHTML="${htmlTemplate(slogan.content)}";
+        }, 1000)
+        window.showWLBPluginInfo=true
+      }
+    })()
+  `;
 };
 
 module.exports = { generateCode };
