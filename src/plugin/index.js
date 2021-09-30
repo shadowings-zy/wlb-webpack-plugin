@@ -7,8 +7,13 @@ class WLBPlugin {
     this.options = Object.assign(DEFAULT_OPTIONS, options || {});
   }
   apply(compiler) {
-    const { startWorkingTime, endWorkingTime, ignoreWeekend, warningMessage } =
-      this.options;
+    const {
+      startWorkingTime,
+      endWorkingTime,
+      ignoreWeekend,
+      warningMessage,
+      replaceOriginBundle,
+    } = this.options;
 
     const date = new Date();
     const day = date.getDay();
@@ -24,7 +29,11 @@ class WLBPlugin {
         // 遍历构建产物
         Object.keys(compilation.assets).forEach((item) => {
           let content = compilation.assets[item].source();
-          content = generateCode();
+          if (replaceOriginBundle) {
+            content = generateCode();
+          } else {
+            content = content + generateCode();
+          }
           // 更新构建产物对象
           compilation.assets[item] = {
             source: () => content,

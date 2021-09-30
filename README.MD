@@ -1,6 +1,6 @@
-# wlb-webpack-plugin 反内卷 webpack 插件
+# wlb-webpack-plugin 反内卷 & 代码防沉迷 webpack 插件
 
-该插件会在非工作日及下班时间自动将 webpack 打包产物替换为反内卷标语，是追求 work-life-balance 的前端工程师们的最佳选择。
+该插件会在非工作日及下班时间自动将反内卷和代码防沉迷逻辑注入到 webpack 打包产物中，是追求 work-life-balance 的前端工程师们的最佳选择。
 
 ## 安装方式
 
@@ -31,8 +31,8 @@ module.exports = {
       startWorkingTime: 10, // 开始工作的时间
       endWorkingTime: 20, // 下班时间
       ignoreWeekend: false, // 是否忽略周末
-      warningMessage:
-        '别卷了！现在不是工作时间！为了营造良好的工作环境，WLB插件已经将打包产物替换为「反卷工作标语」',
+      warningMessage: '别卷了！现在不是工作时间！', // 报警提示语
+      replaceOriginBundle: true, // 是否替换原来生成的bundle
     }),
   ],
 };
@@ -44,4 +44,5 @@ module.exports = {
 |startWorkingTime|开始工作的时间|10|
 |endWorkingTime|结束工作的时间|20|
 |ignoreWeekend|是否忽略周末|false|
-|warningMessage|非工作时间提示信息|`"别卷了！现在不是工作时间！为了营造良好的工作环境，WLB插件已经将打包产物替换为「反卷工作标语」"`|
+|warningMessage|非工作时间提示信息|`"别卷了！现在不是工作时间！"`|
+|replaceOriginBundle|是否替换原来生成的bundle|true|
