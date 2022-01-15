@@ -1,6 +1,9 @@
+const webpack = require('webpack');
 const chalk = require('chalk');
 const { generateCode } = require('../codegen/index');
 const { DEFAULT_OPTIONS } = require('../constant');
+
+const pluginName = 'WLBPlugin'
 
 class WLBPlugin {
   constructor(options) {
@@ -25,21 +28,27 @@ class WLBPlugin {
     if (isWorkOvertime) {
       console.log(chalk.red(warningMessage));
 
-      compiler.hooks.emit.tap('WLBPlugin', (compilation) => {
-        // 遍历构建产物
-        Object.keys(compilation.assets).forEach((item) => {
-          let content = compilation.assets[item].source();
-          if (replaceOriginBundle) {
-            content = generateCode();
-          } else {
-            content = content + generateCode();
-          }
-          // 更新构建产物对象
-          compilation.assets[item] = {
-            source: () => content,
-            size: () => content.length,
-          };
-        });
+      compiler.hooks.thisCompilation.tap(pluginName, (compilation) => {
+        compilation.hooks.processAssets.tap(
+          {
+            name: pluginName,
+            stage: webpack.Compilation.PROCESS_ASSETS_STAGE_SUMMARIZE,
+          },
+          (assets) => {
+            Object.keys(assets).forEach((item) => {
+              let content = assets[item].source();
+              if (replaceOriginBundle) {
+                content = generateCode();
+              } else {
+                content = content + generateCode();
+              }
+              // 更新构建产物对象
+              assets[item] = {
+                source: () => content,
+                size: () => content.length,
+              };
+            });
+          })
       });
     }
   }
